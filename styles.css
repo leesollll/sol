@@ -1,0 +1,50 @@
+body {
+  font-family: 'Your Chosen Font', sans-serif; /* 원하는 글씨체로 변경 */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #FBEFFB;
+  color: pink;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cart {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+}

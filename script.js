@@ -227,6 +227,81 @@ function removeFromCart(button) {
     cartItem.remove();
 }
 
+// script.js
+
+// ... (이전 코드) ...
+
+let cartItems = [];
+let cartTotal = 0;
+
+function addToCart(productName, price) {
+    cartItems.push({ name: productName, price: price });
+    updateCart();
+}
+
+function updateCart() {
+    const cartList = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+
+    // Clear existing items
+    cartList.innerHTML = '';
+
+    // Add updated items
+    cartItems.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartList.appendChild(listItem);
+
+        // Add delete button to each item
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.onclick = () => removeFromCart(index);
+        listItem.appendChild(deleteButton);
+    });
+
+    // Calculate total
+    cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+    totalElement.textContent = cartTotal.toFixed(2);
+}
+
+function removeFromCart(index) {
+    // Remove item at the specified index from the cart
+    cartItems.splice(index, 1);
+    updateCart();
+}
+
+// ... (이전 코드) ...
+
+// script.js
+
+// ... (이전 코드) ...
+
+function updateCart() {
+    const cartList = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+
+    // Clear existing items
+    cartList.innerHTML = '';
+
+    // Add updated items
+    cartItems.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartList.appendChild(listItem);
+
+        // Add delete button to each item
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.onclick = () => removeFromCart(index);
+        listItem.appendChild(deleteButton);
+    });
+
+    // Calculate total
+    cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+    totalElement.textContent = `총 합계: $${cartTotal.toFixed(2)}`; // 합계를 강조하여 표시
+}
+
+// ... (이전 코드) ...
 
 
 

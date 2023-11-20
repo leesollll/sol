@@ -1,44 +1,75 @@
-function addToCart() {
-  // 여기에 상품을 장바구니에 추가하는 로직을 추가하세요.
-  const cartItemsElement = document.getElementById('cart-items');
-  const productTitle = document.querySelector('.product h2').innerText;
-  const listItem = document.createElement('li');
-  listItem.innerText = productTitle;
-  cartItemsElement.appendChild(listItem);
-}
+// script.js
 
-function checkout() {
-  // 여기에 주문 처리 로직을 추가하세요.
-  alert('주문이 완료되었습니다!');
-}
 let cartItems = [];
+let cartTotal = 0;
 
-function addToCart() {
-  const productTitle = document.querySelector('.product h2').innerText;
-  cartItems.push(productTitle);
-  updateCart();
+function addToCart(productName, price) {
+    // 상품을 장바구니에 추가하는 로직
+    cartItems.push({ name: productName, price: price });
+    updateCart();
 }
 
 function updateCart() {
-  const cartItemsElement = document.getElementById('cart-items');
-  // 기존의 장바구니 목록을 비우고 새로 갱신
-  cartItemsElement.innerHTML = '';
-  cartItems.forEach(item => {
-    const listItem = document.createElement('li');
-    listItem.innerText = item;
-    cartItemsElement.appendChild(listItem);
-  });
+    // 장바구니 업데이트 로직
+    const cartList = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+
+    // Clear existing items
+    cartList.innerHTML = '';
+
+    // Add updated items
+    cartItems.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartList.appendChild(listItem);
+
+        // Add delete button to each item
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.onclick = () => removeFromCart(index);
+        listItem.appendChild(deleteButton);
+    });
+
+    // Calculate total
+    cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+    totalElement.textContent = `총 합계: $${cartTotal.toFixed(2)}`; // 합계를 강조하여 표시
 }
 
-function checkout() {
-  // 여기에 주문 처리 로직을 추가하세요.
-  if (cartItems.length === 0) {
-    alert('장바구니가 비어있습니다!');
-  } else {
-    alert('주문이 완료되었습니다!\n' + '주문 내역: ' + cartItems.join(', '));
-    cartItems = []; // 주문 후 장바구니 비우기
-    updateCart(); // 장바구니 화면 업데이트
-  }
+function removeFromCart(index) {
+    // 장바구니에서 상품 삭제
+    cartItems.splice(index, 1);
+    updateCart();
+}
+
+// ... (기타 코드) ...
+
+// 상품 목록 생성 시 상세 정보를 보여주는 이벤트 추가
+document.addEventListener('DOMContentLoaded', function () {
+    const productList = document.getElementById('product-list');
+
+    // 각 상품에 클릭 이벤트 추가
+    productList.addEventListener('click', function (event) {
+        const clickedElement = event.target;
+
+        // 클릭된 요소가 상품 이미지인 경우 상세 정보 보기
+        if (clickedElement.tagName === 'IMG') {
+            const productElement = clickedElement.closest('.product');
+            const productIndex = Array.from(productElement.parentElement.children).indexOf(productElement);
+
+            // 예시로 사용할 상품 데이터
+            const exampleProducts = [
+                { title: '플로럴 프릴 드레스', image: '<a href="https://ibb.co/98PyvRC"><img src="https://i.ibb.co/98PyvRC/Kakao-Talk-20231120-200437603.jpg" alt="Kakao-Talk-20231120-200437603" border="0"></a>', price: 40000, description: '살랑살랑 예쁜 드레스 입니다. 동남아 여행에 강추드려요 !' },
+                // 다른 상품들도 유사하게 추가 가능
+            ];
+
+            const selectedProduct = exampleProducts[productIndex];
+            showProductDetail(selectedProduct);
+        }
+    });
+});
+
+// ... (기타 코드) ...
+
 }
 // ... (이전 코드) ...
 
@@ -65,43 +96,6 @@ function login(event) {
 // ... (이전 코드) ...
 // ... (이전 코드) ...
 
-function addToCart(productTitle) {
-  cartItems.push(productTitle);
-  updateCart();
-}
-
-
-
-// script.js
-
-let cartItems = [];
-let cartTotal = 0;
-
-function addToCart(productName, price) {
-    cartItems.push({ name: productName, price: price });
-    updateCart();
-}
-
-function updateCart() {
-    const cartList = document.getElementById('cart-items');
-    const totalElement = document.getElementById('cart-total');
-
-    // Clear existing items
-    cartList.innerHTML = '';
-
-    // Add updated items
-    cartItems.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartList.appendChild(listItem);
-    });
-
-    // Calculate total
-    cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
-    totalElement.textContent = cartTotal.toFixed(2);
-}
-
-}
 
 let loggedInUser = null;
 

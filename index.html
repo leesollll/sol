@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여성 의류 쇼핑몰</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>여성 의류 쇼핑몰</h1>
+    </header>
+
+    <h1>여성 의류 쇼핑몰</h1>
+    <nav>
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">상의</a></li>
+        <li><a href="#">하의</a></li>
+        <li><a href="#">신발</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+    <main>
+
+        <section class="product-list"> 
+            <!-- 여성 의류 상품 목록 -->
+            <div class="product">  
+                <a href="https://ibb.co/9ZvHbfm"><img src="https://i.ibb.co/9ZvHbfm/Kakao-Talk-20231116-185032034.jpg" alt="Kakao-Talk-20231116-185032034" border="0"></a>
+                <h2>섹시 골지 원피스</h2>
+                <p class="price">50000원</p>
+                <button onclick="addToCart('섹시 골지 원피스', 50000)">장바구니에 추가</button>
+            </div>
+          
+        <section class="product-list">
+            <!-- 여성 의류 상품 목록 -->
+            <div class="product">
+                <a href="https://ibb.co/3Cwb2vh"><img src="https://i.ibb.co/3Cwb2vh/Kakao-Talk-20231120-200437603-02.jpg" alt="Kakao-Talk-20231120-200437603-02" border="0"></a>
+                <h2>아방 오버핏 원피</h2>
+                <p class="price">40000원</p>
+                <button onclick="addToCart('플로럴 프릴 드레스', 40000)">장바구니에 추가</button>
+            </div>
+
+            <!-- 다른 상품들도 유사하게 추가 가능 -->
+        </section>
+
+        <section class="shopping-cart">
+            <!-- 장바구니 내용이 여기에 표시될 수 있음 -->
+            <h2>장바구니</h2>
+            <ul id="cart-items">
+                <!-- 여기에 장바구니 아이템이 추가됨 -->
+            </ul>
+            <p class="total">총합: $<span id="cart-total">0.00</span></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- index.html -->
+<!-- ... (이전 코드) ... -->
+
+<!-- 회원가입 폼 -->
+<div id="signupForm" style="display: none;">
+  <h2>회원가입</h2>
+  <form onsubmit="signup(event)">
+    <label for="signupUsername">사용자명:</label>
+    <input type="text" id="signupUsername" required>
+    <br>
+    <label for="signupPassword">비밀번호:</label>
+    <input type="password" id="signupPassword" required>
+    <br>
+    <button type="submit">회원가입</button>
+  </form>
+</div>
+
+<!-- 로그인 폼 -->
+<div id="loginForm" style="display: none;">
+  <h2>로그인</h2>
+  <form onsubmit="login(event)">
+    <label for="loginUsername">사용자명:</label>
+    <input type="text" id="loginUsername" required>
+    <br>
+    <label for="loginPassword">비밀번호:</label>
+    <input type="password" id="loginPassword" required>
+    <br>
+    <button type="submit">로그인</button>
+  </form>
+</div>
+
+<!-- ... (이전 코드) ... -->
+

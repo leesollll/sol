@@ -59,23 +59,15 @@
     <script src="script.js"></script>
 </body>
 </html>
+   <li><a href="#" onclick="openLoginForm()">로그인</a></li>
+      
+  
+<li><a href="#" onclick="openSignupForm()">회원가입</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- index.html -->
 <!-- ... (이전 코드) ... -->
-
-<!-- 회원가입 폼 -->
-<div id="signupForm" style="display: none;">
-  <h2>회원가입</h2>
-  <form onsubmit="signup(event)">
-    <label for="signupUsername">사용자명:</label>
-    <input type="text" id="signupUsername" required>
-    <br>
-    <label for="signupPassword">비밀번호:</label>
-    <input type="password" id="signupPassword" required>
-    <br>
-    <button type="submit">회원가입</button>
-  </form>
-</div>
 
 <!-- 로그인 폼 -->
 <div id="loginForm" style="display: none;">
@@ -91,5 +83,16 @@
   </form>
 </div>
 
-<!-- ... (이전 코드) ... -->
-
+<!-- 회원가입 폼 -->
+<div id="signupForm" style="display: none;">
+  <h2>회원가입</h2>
+  <form onsubmit="signup(event)">
+    <label for="signupUsername">사용자명:</label>
+    <input type="text" id="signupUsername" required>
+    <br>
+    <label for="signupPassword">비밀번호:</label>
+    <input type="password" id="signupPassword" required>
+    <br>
+    <button type="submit">회원가입</button>
+  </form>
+</div>

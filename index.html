@@ -19,11 +19,25 @@
         <li><a href="#">신발</a></li>
       </ul>
     </nav>
-  </header>
+<!-- 로그인 폼 -->
+<div id="loginForm" style="display: none;">
+  <h2>로그인</h2>
+  <form onsubmit="login(event)">
+    <label for="loginUsername">사용자명:</label>
+    <input type="text" id="loginUsername" required>
+    <br>
+    <label for="loginPassword">비밀번호:</label>
+    <input type="password" id="loginPassword" required>
+    <br>
+    <button type="submit">로그인</button>
+  </form>
+</div>
+</header>
 
   
     <main>
 
+        
         <section class="product-list"> 
             <!-- 여성 의류 상품 목록 -->
             <div class="product">  
@@ -77,19 +91,7 @@
 
 <!-- ... (이전 코드) ... -->
 
-<!-- 로그인 폼 -->
-<div id="loginForm" style="display: none;">
-  <h2>로그인</h2>
-  <form onsubmit="login(event)">
-    <label for="loginUsername">사용자명:</label>
-    <input type="text" id="loginUsername" required>
-    <br>
-    <label for="loginPassword">비밀번호:</label>
-    <input type="password" id="loginPassword" required>
-    <br>
-    <button type="submit">로그인</button>
-  </form>
-</div>
+
 
 <!-- 회원가입 폼 -->
 <div id="signupForm" style="display: none;">
